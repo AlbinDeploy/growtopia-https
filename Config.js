@@ -2,13 +2,13 @@ module.exports = {
     // your server name
     server_name: "Growtopia",
     // public ipv4
-    server_ip: "127.0.0.1",
+    server_ip: "178.128.211.32",
     // UDP port
     server_port: 17091,
     // login url dashboard
-    loginurl: "osm.growplus.asia",
+    loginurl: "fff.albin-url.my.id:3000",
     // for new server header
     type2: true,
     // meta
-    meta: "name=GrowPlus&ip=127.0.0.1&port=17091&3rd=0",
+    meta: "name=GrowPlus&ip=178.128.211.32port=17091&3rd=0",
 }
