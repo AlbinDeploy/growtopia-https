@@ -2,7 +2,7 @@ module.exports = {
     // your server name
     server_name: "Growtopia",
     // public ipv4
-    server_ip: "159.223.70.209",
+    server_ip: "168.144.39.177",
     // UDP port
     server_port: 55000,
     // login url dashboard
@@ -10,5 +10,5 @@ module.exports = {
     // for new server header
     type2: true,
     // meta
-    meta: "name=GrowPlus&ip=159.223.70.209port=55000&3rd=0",
+    meta: "name=GrowPlus&ip=168.144.39.177port=55000&3rd=0",
 }
