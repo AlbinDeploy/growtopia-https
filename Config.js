@@ -4,11 +4,11 @@ module.exports = {
     // public ipv4
     server_ip: "168.144.39.177",
     // UDP port
-    server_port: 3365,
+    server_port: 55000,
     // login url dashboard
     loginurl: "main.luckyps.xyz",
     // for new server header
     type2: true,
     // meta
-    meta: "name=GrowPlus&ip=168.144.39.177port=3365&3rd=0",
+    meta: "name=GrowPlus&ip=168.144.39.177port=55000&3rd=0",
 }
