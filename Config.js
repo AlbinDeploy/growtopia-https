@@ -6,7 +6,7 @@ module.exports = {
     // UDP port
     server_port: 55000,
     // login url dashboard
-    loginurl: "main.luckyps.xyz",
+    loginurl: "cdn.albintsx.site:3000",
     // for new server header
     type2: true,
     // meta
