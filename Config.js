@@ -10,5 +10,5 @@ module.exports = {
     // for new server header
     type2: true,
     // meta
-    meta: "name=GrowPlus&ip=139.59.254.33port=55000&3rd=0",
+    meta: "name=GrowPlus&ip=103.59.160.228port=55000&3rd=0",
 }
