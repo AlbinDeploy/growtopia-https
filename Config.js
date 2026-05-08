@@ -2,7 +2,7 @@ module.exports = {
     // your server name
     server_name: "Growtopia",
     // public ipv4
-    server_ip: "139.59.254.33",
+    server_ip: "103.59.160.228",
     // UDP port
     server_port: 55000,
     // login url dashboard
