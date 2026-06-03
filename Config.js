@@ -1,18 +1,13 @@
 module.exports = {
-    // ==================== Main Server ====================
     server_name: "Growtopia",
     server_ip: "139.99.222.214",
     server_port: 55000,
     loginurl: "growtopia-login-backend-omega-seven.vercel.app",
     type2: true,
     meta: "name=GrowPlus&ip=139.99.222.214port=55000&3rd=0",
-
-    // ==================== Maintenance & Update ====================
     maintenance_mode: false,
     update_required: false,
     required_version: "5.48",
-
-    // ==================== Beta Servers (up to 3) ====================
     beta_servers: [
         {
             server: "beta.growtopiagame.com",
@@ -26,6 +21,5 @@ module.exports = {
             port: 26999,
             type: 1
         }
-        // Tambah beta server ke-3 kalau perlu
     ]
 };
