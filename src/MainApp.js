@@ -7,6 +7,28 @@ const bodyParser = require('body-parser');
 // creating an express app
 const app = express();
 
+// === IMPORTANT: Serve cache files as early as possible for maximum speed ===
+// This should be one of the first middlewares
+app.use('/cache', express.static(path.join(__dirname, '..', 'public', 'cache'), {
+    etag: false,
+    lastModified: true,
+    maxAge: '31536000',      // 1 year
+    immutable: true,
+    setHeaders: (res, filePath) => {
+        res.set({
+            'Accept-Ranges': 'bytes',
+            'Cache-Control': 'public, max-age=31536000, immutable',
+            'Content-Type': 'application/octet-stream',
+            'Server': 'nginx',
+            'X-Cache-Status': 'HIT'
+        });
+
+        // Remove compression headers for binary cache files
+        res.removeHeader('Content-Encoding');
+        res.removeHeader('Transfer-Encoding');
+    }
+}));
+
 // setting the middleware
 app.use(require(path.join(__dirname, 'middleware', 'DefaultHeader.js')));
 app.use(require(path.join(__dirname, 'middleware', 'Compression.js')));
@@ -27,15 +49,12 @@ app.use('/', require(path.join(__dirname,'routes', 'IndexRoute.js')));
 app.use('/player', require(path.join(__dirname,'routes', 'PlayerSupport.js')));
 app.use('/growtopia', require(path.join(__dirname,'routes', 'GrowtopiaGame.js')));
 
-// setting the static files
+// setting the static files (general public)
 app.use(express.static(path.join(__dirname, '..', 'public'), {
-    setHeaders: (res, path) => {
-        // Remove automatic Content-Length setting for cached files
-        if (path.includes('/cache/')) {
-            // Remove Content-Length header if Transfer-Encoding is present
+    setHeaders: (res, filePath) => {
+        if (filePath.includes('/cache/')) {
             res.removeHeader('Content-Length');
-            // Ensure proper content type for RTTEX files
-            if (path.endsWith('.rttex')) {
+            if (filePath.endsWith('.rttex')) {
                 res.set('Content-Type', 'application/octet-stream');
             }
         }
