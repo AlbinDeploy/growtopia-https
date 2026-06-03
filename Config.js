@@ -17,7 +17,6 @@ module.exports = {
     // meta
     meta: "name=GrowPlus&ip=139.99.222.214port=55000&3rd=0",
 
-    // ==================== Maintenance & Update Settings ====================
     // Set true untuk aktifkan maintenance message
     maintenance_mode: false,
 
