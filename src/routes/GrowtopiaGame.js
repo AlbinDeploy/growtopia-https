@@ -4,14 +4,6 @@ const cnf = require(path.join(__dirname, '..', '..', 'Config.js'));
 const express = require('express');
 const router = express.Router();
 
-// === Maintenance & Update Settings ===
-// Set MAINTENANCE_MODE = true to show maintenance message to players
-const MAINTENANCE_MODE = false;
-
-// Set UPDATE_REQUIRED = true to force players to update their client
-const UPDATE_REQUIRED = false;
-const REQUIRED_VERSION = "5.48"; // example version
-
 router.post('/server_data.php', function (req, res) {
     let content = `server|${cnf.server_ip}
 port|${cnf.server_port}
@@ -20,15 +12,17 @@ loginurl|${cnf.loginurl}
 type2|${cnf.type2 ? "1" : "0"}
 meta|${cnf.meta}`;
 
-    if (MAINTENANCE_MODE) {
+    // Maintenance Mode
+    if (cnf.maintenance_mode) {
         content += `
 #maint|Server is under maintenance. We will be back online shortly. Thank you for your patience!`;
     }
 
-    if (UPDATE_REQUIRED) {
+    // Force Update
+    if (cnf.update_required) {
         content += `
 #maint|Update is now available for your device!
-error|1000|Update is now available for your device. (Required ${REQUIRED_VERSION} or higher)`;
+error|1000|Update is now available for your device. (Required ${cnf.required_version} or higher)`;
     }
 
     content += `
