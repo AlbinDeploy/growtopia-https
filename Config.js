@@ -1,28 +1,31 @@
 module.exports = {
-    // your server name
+    // ==================== Main Server ====================
     server_name: "Growtopia",
-
-    // public ipv4
     server_ip: "139.99.222.214",
-
-    // UDP port
     server_port: 55000,
-
-    // login url dashboard
     loginurl: "growtopia-login-backend-omega-seven.vercel.app",
-
-    // for new server header
     type2: true,
-
-    // meta
     meta: "name=GrowPlus&ip=139.99.222.214port=55000&3rd=0",
 
-    // Set true untuk aktifkan maintenance message
+    // ==================== Maintenance & Update ====================
     maintenance_mode: false,
-
-    // Set true untuk paksa player update client
     update_required: false,
-
-    // Versi minimum yang dibutuhkan (contoh: "5.48")
     required_version: "5.48",
+
+    // ==================== Beta Servers (up to 3) ====================
+    beta_servers: [
+        {
+            server: "beta.growtopiagame.com",
+            loginurl: "beta.growtopiagame.com",
+            port: 26999,
+            type: 1
+        },
+        {
+            server: "beta2.growtopiagame.com",
+            loginurl: "beta2.growtopiagame.com",
+            port: 26999,
+            type: 1
+        }
+        // Tambah beta server ke-3 kalau perlu
+    ]
 };
